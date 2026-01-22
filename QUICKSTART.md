@@ -1,6 +1,6 @@
 # Quick Start
 
-## One-command Installation
+## macOS / Linux
 
 ```bash
 # Via curl
@@ -8,16 +8,26 @@ curl -fsSL https://raw.githubusercontent.com/beautyfree/cursor-window-activate-h
 
 # Or via wget
 wget -qO- https://raw.githubusercontent.com/beautyfree/cursor-window-activate-hook/main/install.sh | bash
-```
 
-## Installation from Repository
-
-```bash
-# Clone and install
+# Or from repository
 git clone https://github.com/beautyfree/cursor-window-activate-hook.git
 cd cursor-window-activate-hook
 ./install.sh
 ```
+
+## Windows
+
+**Using Git Bash:**
+```bash
+curl -fsSL https://raw.githubusercontent.com/beautyfree/cursor-window-activate-hook/main/install.sh | bash
+```
+
+**Using WSL:**
+```bash
+curl -fsSL https://raw.githubusercontent.com/beautyfree/cursor-window-activate-hook/main/install.sh | bash
+```
+
+**Manual installation:** See README.md for detailed instructions
 
 ## After Installation
 

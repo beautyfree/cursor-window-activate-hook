@@ -157,7 +157,7 @@ get_script_dir() {
     
     # If not, we're running via curl - download files to temp directory
     TEMP_DIR=$(mktemp -d)
-пые    GITHUB_REPO="beautyfree/cursor-window-activate-hook"
+    GITHUB_REPO="beautyfree/cursor-window-activate-hook"
     GITHUB_BRANCH="main"
     
     print_message "$YELLOW" "📥 Downloading files from GitHub..."

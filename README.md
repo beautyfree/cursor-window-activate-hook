@@ -13,7 +13,7 @@ Automatically activates the Cursor window and brings it to the foreground after 
 
 ## 🚀 Quick Installation
 
-### One-command installation (recommended)
+### macOS / Linux
 
 **Via curl:**
 ```bash
@@ -25,22 +25,60 @@ curl -fsSL https://raw.githubusercontent.com/beautyfree/cursor-window-activate-h
 wget -qO- https://raw.githubusercontent.com/beautyfree/cursor-window-activate-hook/main/install.sh | bash
 ```
 
-The script automatically:
+**From cloned repository:**
+```bash
+git clone https://github.com/beautyfree/cursor-window-activate-hook.git
+cd cursor-window-activate-hook
+./install.sh
+```
+
+### Windows
+
+**Option 1: Using Git Bash (recommended)**
+1. Install [Git for Windows](https://git-scm.com/download/win) if not already installed
+2. Open Git Bash
+3. Run:
+```bash
+curl -fsSL https://raw.githubusercontent.com/beautyfree/cursor-window-activate-hook/main/install.sh | bash
+```
+
+**Option 2: Using WSL (Windows Subsystem for Linux)**
+1. Open WSL terminal
+2. Run:
+```bash
+curl -fsSL https://raw.githubusercontent.com/beautyfree/cursor-window-activate-hook/main/install.sh | bash
+```
+
+**Option 3: Manual installation**
+1. Download files manually:
+   - Download `activate-window.sh` from: https://raw.githubusercontent.com/beautyfree/cursor-window-activate-hook/main/activate-window.sh
+2. Create directory: `%USERPROFILE%\.cursor\hooks\`
+3. Save `activate-window.sh` to `%USERPROFILE%\.cursor\hooks\activate-window.sh`
+4. Create or edit `%USERPROFILE%\.cursor\hooks.json` (replace `%USERPROFILE%` with your actual user profile path, e.g., `C:\Users\YourUsername`):
+```json
+{
+  "version": 1,
+  "hooks": {
+    "beforeSubmitPrompt": [
+      {
+        "command": "C:\\Users\\YourUsername\\.cursor\\hooks\\activate-window.sh"
+      }
+    ],
+    "afterAgentResponse": [
+      {
+        "command": "C:\\Users\\YourUsername\\.cursor\\hooks\\activate-window.sh"
+      }
+    ]
+  }
+}
+```
+**Note:** Replace `C:\Users\YourUsername` with your actual user profile path. In Git Bash/WSL, you can use `$HOME/.cursor/hooks/activate-window.sh` instead.
+
+The installation script automatically:
 - Detects your OS
 - Installs required dependencies (for Linux)
 - Downloads and installs all necessary files
 - Configures hooks.json (merges with existing hooks if present)
-
-### Installation from cloned repository
-
-```bash
-# 1. Clone the repository
-git clone https://github.com/beautyfree/cursor-window-activate-hook.git
-cd cursor-window-activate-hook
-
-# 2. Run the installation script
-./install.sh
-```
 
 ### Linux dependencies installation (automatic)
 
@@ -68,7 +106,10 @@ If automatic installation fails, install manually using one of the commands abov
 ### Windows
 - Cursor installed
 - PowerShell (built-in on Windows 10+)
-- Works in WSL or Git Bash
+- **For automatic installation:** Git Bash or WSL (Windows Subsystem for Linux)
+  - Download Git for Windows: https://git-scm.com/download/win
+  - Or install WSL: https://learn.microsoft.com/en-us/windows/wsl/install
+- **For manual installation:** No additional tools required
 
 ## 🔧 How It Works
 
