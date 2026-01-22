@@ -2,7 +2,6 @@
 
 Automatically activates the Cursor window and brings it to the foreground after each AI agent response. Saves the active window before submitting a prompt and restores it after receiving a response.
 
-> **Note**: Before using, replace `YOUR_USERNAME` in installation commands with your GitHub username or repository URL.
 
 ## 🎯 Features
 
@@ -18,12 +17,12 @@ Automatically activates the Cursor window and brings it to the foreground after 
 
 **Via curl:**
 ```bash
-curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/cursor-window-activator/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/beautyfree/cursor-window-activate-hook/main/install.sh | bash
 ```
 
 **Via wget:**
 ```bash
-wget -qO- https://raw.githubusercontent.com/YOUR_USERNAME/cursor-window-activator/main/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/beautyfree/cursor-window-activate-hook/main/install.sh | bash
 ```
 
 The script automatically:
@@ -36,8 +35,8 @@ The script automatically:
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/YOUR_USERNAME/cursor-window-activator.git
-cd cursor-window-activator
+git clone https://github.com/beautyfree/cursor-window-activate-hook.git
+cd cursor-window-activate-hook
 
 # 2. Run the installation script
 ./install.sh
@@ -133,7 +132,7 @@ echo '{
 
 ```bash
 # Update to the latest version
-curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/cursor-window-activator/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/beautyfree/cursor-window-activate-hook/main/install.sh | bash
 ```
 
 ## 🗑️ Uninstallation
@@ -156,5 +155,4 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 ## 📚 Additional Information
 
 - [Cursor Hooks Documentation](https://cursor.com/docs/agent/hooks)
-- [Issues and Discussions](https://github.com/YOUR_USERNAME/cursor-window-activator/issues)
-# cursor-window-activate-hook
+- [Issues and Discussions](https://github.com/beautyfree/cursor-window-activate-hook/issues)
