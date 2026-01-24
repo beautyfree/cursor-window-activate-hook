@@ -1,19 +1,17 @@
 {
-  "installCommand": {
-    "linux": "sudo apt-get install -y xdotool || sudo yum install -y xdotool || sudo dnf install -y xdotool || sudo pacman -S --noconfirm xdotool || true"
-  },
+  "installCommand": "npm install --production --no-save --silent --no-audit --no-fund || true",
   "files": [
-    "activate-window.sh"
+    "activate-window"
   ],
   "hooks": {
     "beforeSubmitPrompt": [
       {
-        "command": "$HOME/.cursor/hooks/activate-window.sh"
+        "command": "node $HOME/.cursor/hooks/activate-window/activate-window.js"
       }
     ],
     "afterAgentResponse": [
       {
-        "command": "$HOME/.cursor/hooks/activate-window.sh"
+        "command": "node $HOME/.cursor/hooks/activate-window/activate-window.js"
       }
     ]
   }
