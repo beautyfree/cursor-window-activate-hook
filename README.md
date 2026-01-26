@@ -24,22 +24,30 @@ npx cursor-hook install beautyfree/cursor-window-activate-hook
 
 ### Dependencies
 
-The hook requires Node.js dependencies which are automatically installed during setup. The CLI installs them silently without verbose output.
+The hook requires Bun runtime and Node.js dependencies which are automatically installed during setup:
+- Bun runtime will be installed automatically if not present (via official installer)
+- Hook dependencies are installed using `npm install` (required for native modules compilation)
+- Bun is used to run the TypeScript script
+- The CLI installs everything silently without verbose output
 
 ## 📋 Requirements
 
 ### macOS
 - Cursor installed
+- Bun (installed automatically if not present, used to run TypeScript)
+- Node.js and npm (for installing native dependencies)
 - No additional dependencies (uses built-in AppleScript)
 
 ### Linux
 - Cursor installed
-- Node.js (for running the hook script)
+- Bun (installed automatically if not present, used to run TypeScript)
+- Node.js and npm (for installing native dependencies)
 - `xdotool` or `wmctrl` (for window management, install manually if needed)
 
 ### Windows
 - Cursor installed
-- Node.js (for cursor-hook CLI and hook script)
+- Bun (installed automatically if not present, used to run TypeScript)
+- Node.js and npm (for installing native dependencies)
 - PowerShell (built-in on Windows 10+)
 
 ## 🔧 How It Works
@@ -63,8 +71,8 @@ After installation, files will be located at:
 ├── hooks.json                    # Hooks configuration
 └── hooks/
     └── activate-window/           # Hook directory
-        ├── activate-window.js     # Main script
-        ├── package.json           # Node.js dependencies
+        ├── activate-window.ts     # Main script
+        ├── package.json           # Bun dependencies
         ├── node_modules/          # Installed dependencies (created automatically)
         └── ids/                  # Temporary files with window IDs (created automatically)
 ```
@@ -75,8 +83,8 @@ After installation, files will be located at:
 ├── hooks.json                    # Hooks configuration
 └── hooks/
     └── activate-window/           # Hook directory
-        ├── activate-window.js     # Main script
-        ├── package.json           # Node.js dependencies
+        ├── activate-window.ts     # Main script
+        ├── package.json           # Bun dependencies
         ├── node_modules/          # Installed dependencies (created automatically)
         └── ids/                  # Temporary files with window IDs (created automatically)
 ```
@@ -87,7 +95,7 @@ If you prefer to set up manually:
 
 1. Download the `activate-window` directory from the repository
 2. Copy it to `~/.cursor/hooks/` (or `.cursor/hooks/` for project installation)
-3. Install Node.js dependencies: `cd ~/.cursor/hooks/activate-window && npm install --production`
+3. Install dependencies: `cd ~/.cursor/hooks/activate-window && npm install --production` (npm is required for native modules)
 4. Create or update `~/.cursor/hooks.json` (or `.cursor/hooks.json` for project) with hooks configuration:
    ```json
    {
@@ -95,12 +103,12 @@ If you prefer to set up manually:
      "hooks": {
        "beforeSubmitPrompt": [
          {
-           "command": "node $HOME/.cursor/hooks/activate-window/activate-window.js"
+           "command": "bun $HOME/.cursor/hooks/activate-window/activate-window.ts"
          }
        ],
        "afterAgentResponse": [
          {
-           "command": "node $HOME/.cursor/hooks/activate-window/activate-window.js"
+           "command": "bun $HOME/.cursor/hooks/activate-window/activate-window.ts"
          }
        ]
      }
@@ -119,7 +127,7 @@ echo '{
   "cursor_version": "2.4.20",
   "workspace_roots": ["/path/to/workspace"],
   "user_email": "test@example.com"
-}' | node ~/.cursor/hooks/activate-window/activate-window.js
+}' | bun ~/.cursor/hooks/activate-window/activate-window.ts
 
 # Check saved ID
 cat ~/.cursor/hooks/activate-window/ids/test-123.txt
@@ -131,7 +139,7 @@ echo '{
   "cursor_version": "2.4.20",
   "workspace_roots": ["/path/to/workspace"],
   "user_email": "test@example.com"
-}' | node ~/.cursor/hooks/activate-window/activate-window.js
+}' | bun ~/.cursor/hooks/activate-window/activate-window.ts
 ```
 
 ## 🔄 Updating

@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "type": "module",
   "description": "Cursor hook to automatically activate window after agent response",
-  "main": "activate-window.js",
+  "main": "dist/activate-window.js",
   "bin": {
-    "activate-window": "./activate-window.js"
+    "activate-window": "./dist/activate-window.js"
   },
   "dependencies": {
     "get-windows": "^9.2.0",
@@ -13,5 +13,12 @@
   },
   "engines": {
     "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.10",
+    "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "build": "tsc"
   }
 }

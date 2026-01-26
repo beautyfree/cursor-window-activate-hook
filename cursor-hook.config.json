@@ -1,17 +1,21 @@
 {
-  "installCommand": "npm install --production --no-save --silent --no-audit --no-fund || true",
+  "installCommand": {
+    "linux": "command -v bun >/dev/null 2>&1 || (curl -fsSL https://bun.sh/install | bash); export PATH=\"$HOME/.bun/bin:$PATH\"; npm install --production --no-save --silent --no-audit --no-fund || true",
+    "macos": "command -v bun >/dev/null 2>&1 || (curl -fsSL https://bun.sh/install | bash); export PATH=\"$HOME/.bun/bin:$PATH\"; npm install --production --no-save --silent --no-audit --no-fund || true",
+    "windows": "where bun >nul 2>&1 || powershell -c \"irm bun.sh/install.ps1 | iex\"; $env:PATH += \";$env:USERPROFILE\\.bun\\bin\"; npm install --production --no-save --silent --no-audit --no-fund || true"
+  },
   "files": [
     "activate-window"
   ],
   "hooks": {
     "beforeSubmitPrompt": [
       {
-        "command": "node $HOME/.cursor/hooks/activate-window/activate-window.js"
+        "command": "bun $HOME/.cursor/hooks/activate-window/activate-window.ts"
       }
     ],
     "afterAgentResponse": [
       {
-        "command": "node $HOME/.cursor/hooks/activate-window/activate-window.js"
+        "command": "bun $HOME/.cursor/hooks/activate-window/activate-window.ts"
       }
     ]
   }
