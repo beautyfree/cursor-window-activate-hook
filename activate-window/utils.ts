@@ -3,6 +3,14 @@ import * as path from 'path'
 import { fileURLToPath } from 'url'
 import { Window } from 'node-window-manager'
 
+/**
+ * Read and parse JSON from stdin
+ */
+export async function readJsonStdin<T = unknown>(): Promise<T> {
+  const text = await new Response(process.stdin).text()
+  return JSON.parse(text) as T
+}
+
 export interface WindowData {
   id?: number | string
   title?: string

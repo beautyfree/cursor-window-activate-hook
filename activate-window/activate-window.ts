@@ -21,6 +21,7 @@ import {
   getStorageDir,
   isCursorWindow,
   loadWindowData,
+  readJsonStdin,
   saveWindowData,
 } from './utils.js'
 
@@ -136,12 +137,7 @@ async function main(): Promise<void> {
   const storageDir = getStorageDir()
 
   try {
-    // Read JSON from stdin
-    let input = ''
-    for await (const chunk of process.stdin) {
-      input += chunk.toString()
-    }
-    const data: HookPayload = JSON.parse(input)
+    const data: HookPayload = await readJsonStdin<HookPayload>()
 
     if (data.hook_event_name === 'beforeSubmitPrompt') {
       await handleBeforeSubmitPrompt(data, storageDir)
