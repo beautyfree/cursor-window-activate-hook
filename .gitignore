@@ -1,3 +1,9 @@
+# Dependencies
+node_modules/
+
+# Compiled output
+dist/
+
 # OS files
 .DS_Store
 Thumbs.db

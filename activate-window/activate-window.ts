@@ -13,7 +13,7 @@ import type {
   BeforeSubmitPromptPayload,
   BeforeSubmitPromptResponse,
   HookPayload,
-} from './types'
+} from './types.js'
 import {
   type WindowData,
   deleteWindowData,
@@ -22,7 +22,7 @@ import {
   isCursorWindow,
   loadWindowData,
   saveWindowData,
-} from './utils'
+} from './utils.js'
 
 /**
  * Get the current active window
