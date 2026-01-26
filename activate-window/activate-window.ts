@@ -147,8 +147,6 @@ async function main(): Promise<void> {
       await handleBeforeSubmitPrompt(data, storageDir)
     } else if (data.hook_event_name === 'afterAgentResponse') {
       await handleAfterAgentResponse(data, storageDir)
-    } else {
-      await activateCursor()
     }
   } catch (error) {
     console.error('Error reading/parsing JSON input:', error)
