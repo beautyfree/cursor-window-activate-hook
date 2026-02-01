@@ -1,6 +1,6 @@
 {
   "name": "cursor-activate-hook",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "Cursor hook to automatically activate window after agent response",
   "main": "dist/activate-window.js",
@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "@types/node": "^25.0.10",
+    "cursor-hook": "^0.1.5",
     "typescript": "^5.0.0"
   },
   "scripts": {

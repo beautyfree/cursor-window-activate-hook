@@ -13,7 +13,7 @@ import type {
   BeforeSubmitPromptPayload,
   BeforeSubmitPromptResponse,
   HookPayload,
-} from './types.js'
+} from 'cursor-hook'
 import {
   type WindowData,
   deleteWindowData,
